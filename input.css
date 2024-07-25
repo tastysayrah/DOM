@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.cart {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cart-items {
+    border-top: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.item-details {
+    display: flex;
+    align-items: center;
+}
+
+.item-details h2 {
+    margin-right: 10px;
+}
+
+.like-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #ccc;
+}
+
+.like-button.liked {
+    color: red;
+}
+
+.item-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-btn, .delete-btn {
+    background: #f8f8f8;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    margin: 0 5px;
+    padding: 5px;
+}
+
+.item-price {
+    font-weight: bold;
+}
