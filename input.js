@@ -1,41 +1,68 @@
-document.addEventListener('DOMContentLoaded', () => {
-    updateTotalPrice();
+document.addEventListener("DomContentLoaded", function(){
+    const cartItems = document.quarySectorAll(".cart-item");
+    const totalPriceElement = document.querySelector("total-price");
+    const likeCountElement = document.getElementsByClassName(".like-count");
 
-    document.querySelectorAll('.like-button').forEach(button => {
-        button.addEventListener('click', () => {
-            button.classList.toggle('liked');
-        });
-    });
-});
 
-function increaseQuantity(button) {
-    const quantityElement = button.previousElementSibling;
-    let quantity = parseInt(quantityElement.textContent);
-    quantityElement.textContent = ++quantity;
-    updateTotalPrice();
+
+
+function updateTotalPrice(){
+    let total = 0;
+    cartItems.forEach(item=> {
+        const price = parseFloat(item.quarySector(".item-price").dataset.price);
+        const quantity = parseInt(item.quarySelector(".item-quantity").textContent);
+        total += price * quantity;
+    })
+    totalPriceElement.textContent= total +'$';
 }
+function UpdateLikeCount(){
+    let likeCount = 0;
+    cartItems.forEach(item =>{
+      const likeButton = item.quarySelector(".like-item");
+      const itemLikeCount = item.quarySelector(".like-count");
+      if(likeButton.classList.contains("linked")){
+        likeCount++;
+        itemLikeCount.textContent= 1;
+      }else{
+        itemLikeCount.textContent= 0;
+      }
+    });
+likeCountElement.textContent=likeCount;
+};
 
-function decreaseQuantity(button) {
-    const quantityElement = button.nextElementSibling;
+cartItems.forEach(item=> {
+    const minusButton = item.querySelector(".quantity-minus");
+    const plusButton = item.quarySelector(".quantity-plus");
+    const deleteButton = item.quarySelector(".delete-item");
+    const likeButton = item.quarySelector(".like-item");
+    const quantityElement = item.quarySelector(".item-quantity");
+
+minusButton.addEventListener("click", function(){
     let quantity = parseInt(quantityElement.textContent);
-    if (quantity > 1) {
-        quantityElement.textContent = --quantity;
+    if(quantity>1){
+        quantityElement.textContent= --quantity;
         updateTotalPrice();
     }
-}
+});
 
-function deleteItem(button) {
-    const cartItem = button.closest('.cart-item');
-    cartItem.remove();
+plusButton.addEventListener("click", function(){
+    let quantity = parseInt(quantityElement.textContent);
+        quantityElement.textContent= ++quantity;
+        updateTotalPrice();
+    
+});
+
+deleteButton.addEventListener("click", function(){
+    item.remove();
     updateTotalPrice();
-}
+    UpdateLikeCount()
+});
 
-function updateTotalPrice() {
-    let totalPrice = 0;
-    document.querySelectorAll('.cart-item').forEach(item => {
-        const price = parseFloat(item.getAttribute('data-price'));
-        const quantity = parseInt(item.querySelector('.quantity').textContent);
-        totalPrice += price * quantity;
-    });
-    document.getElementById('total-price').textContent = totalPrice.toFixed(2);
-}
+likeButton.addEventListener("click", function(){
+    likeButton.classList.toggle("liked");
+    UpdateLikeCount()
+});
+});
+updateTotalPrice();
+UpdateLikeCount();
+});

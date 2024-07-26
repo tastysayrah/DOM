@@ -1,60 +1,69 @@
-body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-}
-
-.cart {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.cart-items {
-    border-top: 1px solid #ccc;
-    margin-top: 20px;
-}
-
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #ccc;
-}
-
-.item-details {
-    display: flex;
-    align-items: center;
-}
-
-.item-details h2 {
-    margin-right: 10px;
-}
-
-.like-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-    color: #ccc;
-}
-
-.like-button.liked {
-    color: red;
-}
-
-.item-controls {
-    display: flex;
-    align-items: center;
-}
-
-.quantity-btn, .delete-btn {
-    background: #f8f8f8;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    margin: 0 5px;
-    padding: 5px;
-}
-
-.item-price {
-    font-weight: bold;
-}
+.navbar-brand {
+    color: green !important;
+  }
+  
+  * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    i {
+      font-size: 35px;
+      cursor: pointer;
+      margin: 0 10px;
+      color: black;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .shopping-card-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #e7e7e7;
+      border-radius: 10px;
+      padding: 3%;
+      margin: 50px 0;
+    }
+    .total-price span {
+      font-size: 30px;
+      margin-bottom: -200px;
+    }
+    
+    .total {
+      font-weight: bold;
+    }
+    .list-products {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      width: 70%;
+    }
+    .card {
+      padding: 5%;
+    }
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .quantity {
+      font-size: 25px;
+    }
+    
+    .card-body div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 25px;
+    }
+    
+    .fa-trash-alt {
+      color: #de6b5c;
+    }
